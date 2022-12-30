@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo noupdate="1">
+    <record id="template_model_hr_attendance_justify_validate" model="mail.template">
+        <field name="name">Validación de Justificación de Tardanza</field>
+        <field name="email_from">${object.mail_from} </field>
+        <field name="subject">Estimado, ${object.employee_id.name} </field>
+        <field name="email_to">${object.employee_id.work_email}</field>
+        <field name="model_id" ref="hr_attendance.model_hr_attendance"/>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html" type="html">
+            <div>
+                <p><strong>Número de justificación: ${object.jutify_id.name}</strong></p>
+                <p>La justifificación de su tardanza fue: ${object.jutify_id.name_show}</p>
+            </div>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="attendance_justify_wizard" model="ir.ui.view">
+            <field name="name">hr.attendance.justify.wizard</field>
+            <field name="model">hr.attendance.justify</field>
+            <field name="arch" type="xml">
+                <form string="Creación de justificación">
+                    <header>
+                        <field name="state" widget="statusbar" readonly="1"/>
+                    </header>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <field name="employee_id" />
+                        <field name="mail_from" invisible="1"/>
+                        <field name="date" placeholder="Seleccione fecha"/>
+                    </group>
+                    <group>
+                        <field name="description" placeholder="Escriba aquí alguna justificación por favor..."/>
+                    </group>
+                    <footer>
+                        <button name="send" string="Enviar" type="object" default_focus="1"
+                                icon="fa-forward"
+                                class="oe_highlight"
+                        />
+                        <button string="Cancelar" icon="fa-times" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_attendance_justify_wizard" model="ir.actions.act_window">
+            <field name="name">Justificación</field>
+            <field name="res_model">hr.attendance.justify</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            id="menu_stock_toy_api_wizard"
+            name="Crear Justificacion"
+            parent="l10n_cr_attendance.menu_attendance_justify"
+            sequence="2"
+            action="action_attendance_justify_wizard"/>
+
+    </data>
+</odoo>

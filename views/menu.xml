@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+   <menuitem id="menu_attendance_justify" name="Tardanzas" parent="hr_attendance.menu_hr_attendance_root" sequence="2"/>
+
+</odoo>

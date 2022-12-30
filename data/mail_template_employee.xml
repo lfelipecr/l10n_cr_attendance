@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo noupdate="1">
+    <record id="email_template_hr_attendance_employee" model="mail.template">
+        <field name="name">Asistencia </field>
+        <field name="email_from">${object.mail_from} </field>
+        <field name="subject">Estimado, ${object.employee_id.name} </field>
+        <field name="email_to">${object.employee_id.work_email}</field>
+        <field name="model_id" ref="hr_attendance.model_hr_attendance"/>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html" type="html">
+            <div>
+                <p>Se le está notificando su registro de tardanza. Por favor, recuerde justificar.</p>
+                <p><strong>Hora entrada: </strong>${format_datetime(object.check_in, tz=object.employee_id.tz, dt_format="yyyy/MM/dd HH:mm:ss")}</p>
+                <p><strong>Tardanza: </strong> ${object.delta}</p>
+            </div>
+        </field>
+    </record>
+</odoo>
